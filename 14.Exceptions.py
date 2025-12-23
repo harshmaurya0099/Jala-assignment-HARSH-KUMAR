@@ -14,7 +14,7 @@ def cause_arithmetic_error():
 
 if __name__ == "__main__":
     print("Attempting to cause an Arithmetic Exception...")
-    cause_arithmetic_error()
+    # cause_arithmetic_error()
     print("This line will not be printed because the program will terminate.")
 
 #2. Handle the Arithmetic Exception using try-catch block
@@ -43,10 +43,13 @@ def throw_exception_method():
 
 print("Program started.")
 
-# Calling the method without a try...except block
-throw_exception_method() 
+# Calling the method with exception handling
+try:    
+    throw_exception_method()
+except Exception as e:
+    print("An exception occurred:", e)
 
-print("This line will not be executed.")
+print("This line will be executed after handling the exception.")
 
 #4. Write a program with multiple catch blocks
 
@@ -167,9 +170,10 @@ denominator = 0
 print(f"Attempting to divide {numerator} by {denominator}...")
 
 # This line will raise a ZeroDivisionError
-result = numerator / denominator
-
-print("This line will not be executed if an exception occurs.")
+try:
+    result = numerator / denominator
+except ZeroDivisionError as e:
+ print("This line will not be executed if an exception occurs.")
 
 
 #9. Write a program to generrate file not found exception
